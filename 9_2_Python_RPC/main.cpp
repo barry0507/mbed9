@@ -34,6 +34,7 @@ int main() {
 
     while(1) {
 
+
         memset(buf, 0, 256);      // clear buffer
 
 
@@ -46,19 +47,32 @@ int main() {
                 pc.printf("\r\n");
 
                 break;
-
+              //  pc.printf(recv);
             }
 
             buf[i] = pc.putc(recv);
-
+            
         }
-
+    
         //Call the static call method on the RPC class
 
         RPC::call(buf, outbuf);
 
-        pc.printf("%s\r\n", outbuf);
+       // pc.printf("%s\r\n", outbuf);
+        RPC::call("/myled/write 1",outbuf);
+        RPC::call("/myled2/write 1",outbuf);
+        RPC::call("/myled3/write 1",outbuf);
+        while(1){
+            RPC::call("/myled/write 0",outbuf);
+            wait(0.5);
+            RPC::call("/myled/write 1",outbuf);
+            
+            RPC::call("/myled3/write 0",outbuf);
+            wait(0.5);
+            RPC::call("/myled3/write 1",outbuf);
+        }
 
     }
+   
 
 }

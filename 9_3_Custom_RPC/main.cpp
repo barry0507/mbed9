@@ -50,10 +50,22 @@ int main() {
                 break;
 
             }
-
-
             buf[i] = pc.putc(recv);
-
+             //pc.printf("%s\r\n", recv);
+           /* if(i==0)
+                buf[i] = "/LEDControl/run 1 1";
+            else if(i==1)    
+                buf[i]=  "/LEDControl/run 2 1";
+            else if(i==2)    
+                buf[i]=  "/LEDControl/run 3 1";
+            else if(i%4==0)
+                buf[i] = "/LEDControl/run 1 0";
+            else if(i%4==1)
+                buf[i] = "/LEDControl/run 1 1";
+            else if(i%4==2)
+                buf[i] = "/LEDControl/run 3 0";
+            else if(i%4==3)
+                buf[i] = "/LEDControl/run 3 1";    */
         }
 
 
