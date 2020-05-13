@@ -50,7 +50,7 @@ int main() {
               //  pc.printf(recv);
             }
 
-            buf[i] = pc.putc(recv);
+            buf[i] = pc.putc(recv);uh
             
         }
     
